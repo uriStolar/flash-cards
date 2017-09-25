@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
+var nodemon = require('gulp-nodemon');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
 var cleanCSS = require('gulp-clean-css');
@@ -22,6 +23,15 @@ gulp.task('minify-css', function () {
         .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('default', ["js", "minify-css"], function () {
+gulp.task('minify', ["js", "minify-css"], function () {
     gutil.log('Completed  task!');
 });
+
+gulp.task('server', function () {
+  nodemon({
+    script: 'app.js',
+    ext: 'js html css'
+  });
+});
+
+gulp.task('default', ["server"]);

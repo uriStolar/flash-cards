@@ -14,10 +14,12 @@ var _ = require('lodash');
 var authController = function () {
 
     var authenticate = function (req, res) {
+      console.log('sup');
         if (req.body.username === "admin" && req.body.password === config.adminPass) {
             return responseMaker.prepareResponse(null, {}, res);
 
         } else {
+          console.log('errorzzz');
             return responseMaker.prepareResponse(new CustomError("Incorrect username and password", {
                 errorCode: errorCodes.NOT_AUTHORIZED,
                 extra: {
