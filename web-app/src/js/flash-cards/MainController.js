@@ -3,7 +3,6 @@
         $scope.selectedTab = -1;
         $scope.isLoggedIn = false;
         $rootScope.$on("onTabChanged", function (event, tab) {
-            console.log(tab);
             $scope.isLoggedIn = true;
             $scope.selectedTab = tab;
         });

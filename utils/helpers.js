@@ -13,9 +13,6 @@ var helpers = function () {
         adminData.isAdmin = false;
         let enc = cipher.update(token, 'utf8', 'hex');
         enc += cipher.final('hex');
-        console.log(token);
-        console.log(enc);
-        console.log(enc === config.ap);
         if (token) {
             adminData.isAdmin = (enc === config.ap);
         }

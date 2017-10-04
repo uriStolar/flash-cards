@@ -17,14 +17,10 @@ var _ = require('lodash');
 
 let decrypted = decipher.update(enc, 'hex', 'utf8');
 decrypted += decipher.final('utf8');
-console.log(decrypted);
 
 var authController = function () {
 
     var authenticate = function (req, res) {
-      console.log(enc);                       //decipher.final('utf8')
-      console.log(req.body.password);
-      console.log(req.body.password === decrypted);
         if (req.body.username === "admin" && req.body.password === decrypted) {
             return responseMaker.prepareResponse(null, {}, res);
 
